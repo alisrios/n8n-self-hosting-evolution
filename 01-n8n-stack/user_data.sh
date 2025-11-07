@@ -40,10 +40,22 @@ cd /home/ec2-user/n8n
 # Define permissões corretas
 sudo chown -R $USER:$USER /home/ec2-user/n8n
 
+# Gera chaves aleatórias
+export AUTHENTICATION_API_KEY=$(openssl rand -base64 32)
+export N8N_ENCRYPTION_KEY=$(openssl rand -base64 32)
+
+# Imprime a chave da API no log do sistema para fácil acesso
+echo "--- Evolution API Key ---"
+echo "${AUTHENTICATION_API_KEY}"
+echo "--------------------------"
+
+# Salva a chave da API em um arquivo para referência futura
+echo "${AUTHENTICATION_API_KEY}" > .evolution_api
+
 # Cria um arquivo .env com variáveis sensíveis (modifique conforme necessário)
 cat <<EOF > .env
 AUTHENTICATION_TYPE=api_key
-AUTHENTICATION_API_KEY=x15Fq16Vrv+GkIH4z1R50iGWMggzAC8e
+AUTHENTICATION_API_KEY=${AUTHENTICATION_API_KEY}
 AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
 LANGUAGE=pt-BR
 CONFIG_SESSION_PHONE_CLIENT=Integracao
@@ -125,7 +137,7 @@ DB_POSTGRESDB_PORT=5432
 DB_POSTGRESDB_DATABASE=n8n
 DB_POSTGRESDB_USER=postgres
 DB_POSTGRESDB_PASSWORD=123456
-N8N_ENCRYPTION_KEY=b7AoRwSMvn/C06d/RbMlBeDjVoyr9aym
+N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
 EOF
 
 # Cria um script para inicializar múltiplos bancos de dados no PostgreSQL
