@@ -1,9 +1,28 @@
-# Ignorar arquivos gerados pelo Terraform
-.terraform/
-terraform.tfstate
-terraform.tfstate.backup
+# Terraform-specific files
+**/.terraform/
+*.tfstate
+*.tfstate.backup
 *.tfvars
-*.terraform.lock.hcl
-/.terraform/*
-terraform.tfstate*
-.terraform*
+*.tfplan
+.terraform.lock.hcl
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all override files from version control
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Mac OS system files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# VS Code files
+.vscode/
