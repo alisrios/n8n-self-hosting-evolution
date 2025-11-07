@@ -43,7 +43,7 @@ sudo chown -R $USER:$USER /home/ec2-user/n8n
 # Cria um arquivo .env com variáveis sensíveis (modifique conforme necessário)
 cat <<EOF > .env
 AUTHENTICATION_TYPE=api_key
-AUTHENTICATION_API_KEY=LVKX4QvOEG7CrsvxndhxXZPjUq9deFlhDXvgREim9I9LiJHg1DbM9WprraXLydLf
+AUTHENTICATION_API_KEY=x15Fq16Vrv+GkIH4z1R50iGWMggzAC8e
 AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
 LANGUAGE=pt-BR
 CONFIG_SESSION_PHONE_CLIENT=Integracao
@@ -111,10 +111,10 @@ S3_ENABLED=false
 N8N_SECURE_COOKIE=false
 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 N8N_PROTOCOL=https
-WEBHOOK_URL=https://n8n2.alisriosti.com.br/
+WEBHOOK_URL=https://n8n.alisriosti.com.br/
 SSL_EMAIL=alisrios@gmail.com.br
-SUBDOMAIN=n8n2
-SUBDOMAIN2=evolution-api2
+SUBDOMAIN=n8n
+SUBDOMAIN2=evolution-api
 DOMAIN_NAME=alisriosti.com.br
 GENERIC_TIMEZONE=America/Sao_Paulo
 
@@ -125,7 +125,7 @@ DB_POSTGRESDB_PORT=5432
 DB_POSTGRESDB_DATABASE=n8n
 DB_POSTGRESDB_USER=postgres
 DB_POSTGRESDB_PASSWORD=123456
-N8N_ENCRYPTION_KEY=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+N8N_ENCRYPTION_KEY=b7AoRwSMvn/C06d/RbMlBeDjVoyr9aym
 EOF
 
 # Cria um script para inicializar múltiplos bancos de dados no PostgreSQL
