@@ -123,6 +123,8 @@ S3_ENABLED=false
 N8N_SECURE_COOKIE=false
 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 N8N_PROTOCOL=https
+N8N_PROXY_HOPS=1
+N8N_RUNNERS_ENABLED=true
 WEBHOOK_URL=https://n8n.alisriosti.com.br/
 SSL_EMAIL=alisrios@gmail.com.br
 SUBDOMAIN=n8n
@@ -222,7 +224,10 @@ services:
     command:
       - "--api.insecure=true"
       - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - --certificatesresolvers.myresolver.acme.email=\${SSL_EMAIL}
